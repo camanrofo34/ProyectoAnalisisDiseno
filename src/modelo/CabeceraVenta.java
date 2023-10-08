@@ -1,10 +1,9 @@
 package modelo;
 
-/**
- * @author ediso
- */
+import javax.annotation.processing.Generated;
+
 public class CabeceraVenta {
-    
+
     //Atributos
     private int idCabeceraventa;
     private int idCliente;

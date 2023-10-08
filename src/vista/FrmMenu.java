@@ -4,10 +4,6 @@ import controlador.Reportes;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 
-/**
- *
- * @author Edison Zambrano - © Programador Fantama
- */
 public class FrmMenu extends javax.swing.JFrame {
 
     public static JDesktopPane jDesktopPane_menu;

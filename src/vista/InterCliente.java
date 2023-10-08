@@ -6,10 +6,6 @@ import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
 
-/**
- *
- * @author ediso
- */
 public class InterCliente extends javax.swing.JInternalFrame {
 
     public InterCliente() {

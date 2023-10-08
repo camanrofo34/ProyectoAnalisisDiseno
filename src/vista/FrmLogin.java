@@ -6,11 +6,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
-
-/**
- *
- * @author Edison Zambrano - © Programador Fantama
- */
 public class FrmLogin extends javax.swing.JFrame {
 
     public FrmLogin() {

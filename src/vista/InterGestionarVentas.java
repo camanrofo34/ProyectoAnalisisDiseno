@@ -17,10 +17,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.CabeceraVenta;
 
-/**
- *
- * @author ediso
- */
+
 public class InterGestionarVentas extends javax.swing.JInternalFrame {
 
     private int idCliente = 0;

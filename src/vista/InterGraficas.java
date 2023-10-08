@@ -5,10 +5,6 @@ import javax.swing.JTextField;
 import static vista.FrmMenu.jDesktopPane_menu;
 
 
-/**
- *
- * @author edison Zambrano
- */
 public class InterGraficas extends javax.swing.JInternalFrame {
     
     public static String fecha_inicio = "", fecha_fin = "";

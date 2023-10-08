@@ -10,10 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Edison
- */
+
 public class InterGraficaVentas extends javax.swing.JInternalFrame {
 
     ArrayList<Integer> listaCantidad = new ArrayList<>();
