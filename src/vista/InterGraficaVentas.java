@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import javax.swing.JLabel;
 
 public class InterGraficaVentas extends javax.swing.JInternalFrame {
 
@@ -84,6 +84,24 @@ public class InterGraficaVentas extends javax.swing.JInternalFrame {
         }
         return mayor;
     }
+    private int obtenerValorTotalVenta(String fecha) {
+    int valorTotal = 0;
+    try {
+        Connection cn = Conexion.conectar();
+        PreparedStatement pst = cn.prepareStatement(
+                "select sum(valorPagar) as ValorTotal from tb_cabecera_venta "
+                + "where fechaVenta = ?;");
+        pst.setString(1, fecha);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            valorTotal = rs.getInt("ValorTotal");
+        }
+        cn.close();
+    } catch (SQLException e) {
+        System.out.println("Error en: " + e);
+    }
+    return valorTotal;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,8 +121,8 @@ public class InterGraficaVentas extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Seleccione fechas para Graficar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 330, -1));
+        jLabel1.setText("Ventas por día");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 330, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -149,9 +167,12 @@ public class InterGraficaVentas extends javax.swing.JInternalFrame {
             g.fillRect(100, parametro3, largo_NuevoIngreso, 40);
             g.drawString(listaFechas.get(i), 10 , parametroFecha);
             g.drawString("Cantidad: " + listaCantidad.get(i), 10, parametro1);
+            int valorTotal = obtenerValorTotalVenta(listaFechas.get(i));
+            g.drawString("Valor Total: " + valorTotal, 10, parametro1 + 20);
             parametro1 += 50;
             parametroFecha += 50;
             parametro3 += 50;
+           
         }
     }
 }

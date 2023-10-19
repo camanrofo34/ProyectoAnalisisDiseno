@@ -17,7 +17,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 
-
 public class InterGestionarCliente extends javax.swing.JInternalFrame {
 
     private int idCliente;

@@ -2,7 +2,13 @@ package vista;
 
 import controlador.Reportes;
 import java.awt.Dimension;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 
 public class FrmMenu extends javax.swing.JFrame {
 
@@ -24,6 +30,12 @@ public class FrmMenu extends javax.swing.JFrame {
         this.add(jDesktopPane_menu);
 
     }
+    public void SetImageLabel(JLabel labelName, String root){
+        ImageIcon image = new ImageIcon (root);
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
+        labelName.setIcon(icon);
+        this.repaint();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,12 +48,12 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem_nuevo_usuario = new javax.swing.JMenuItem();
         jMenuItem_gestionar_usuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3_nuevo_producto = new javax.swing.JMenuItem();
         jMenuItem_gestionar_producto = new javax.swing.JMenuItem();
         jMenuItem_actualizar_stock = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -62,10 +74,13 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_ver_historial = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem_cerrar_sesion = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenuItem4.setText("jMenuItem4");
 
         jMenuItem15.setText("jMenuItem15");
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,17 +118,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu2.setText("Producto");
         jMenu2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jMenu2.setPreferredSize(new java.awt.Dimension(150, 50));
-
-        jMenuItem3_nuevo_producto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem3_nuevo_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo-producto.png"))); // NOI18N
-        jMenuItem3_nuevo_producto.setText("Nuevo Producto");
-        jMenuItem3_nuevo_producto.setPreferredSize(new java.awt.Dimension(200, 30));
-        jMenuItem3_nuevo_producto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3_nuevo_productoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3_nuevo_producto);
 
         jMenuItem_gestionar_producto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenuItem_gestionar_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
@@ -158,7 +162,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_gestionar_cliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenuItem_gestionar_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
         jMenuItem_gestionar_cliente.setText("Gestionar Clientes");
-        jMenuItem_gestionar_cliente.setPreferredSize(new java.awt.Dimension(180, 30));
         jMenuItem_gestionar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem_gestionar_clienteActionPerformed(evt);
@@ -187,7 +190,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem_gestionar_categorias.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenuItem_gestionar_categorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/categorias.png"))); // NOI18N
         jMenuItem_gestionar_categorias.setText("Gestionar Categorias");
-        jMenuItem_gestionar_categorias.setPreferredSize(new java.awt.Dimension(200, 30));
         jMenuItem_gestionar_categorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem_gestionar_categoriasActionPerformed(evt);
@@ -296,9 +298,14 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu7);
 
         jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
-        jMenu8.setText("Cerrar Sesión");
+        jMenu8.setText("Cerrar ");
         jMenu8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jMenu8.setPreferredSize(new java.awt.Dimension(200, 50));
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu8ActionPerformed(evt);
+            }
+        });
 
         jMenuItem_cerrar_sesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenuItem_cerrar_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
@@ -310,6 +317,15 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         jMenu8.add(jMenuItem_cerrar_sesion);
+
+        jMenuItem2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem2.setText("Cerrar App");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem2);
 
         jMenuBar1.add(jMenu8);
 
@@ -334,12 +350,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jDesktopPane_menu.add(interGestionarCategoria);
         interGestionarCategoria.setVisible(true);
     }//GEN-LAST:event_jMenuItem_gestionar_categoriasActionPerformed
-
-    private void jMenuItem3_nuevo_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3_nuevo_productoActionPerformed
-        InterProducto interProducto = new InterProducto();
-        jDesktopPane_menu.add(interProducto);
-        interProducto.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3_nuevo_productoActionPerformed
 
     private void jMenuItem_gestionar_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_productoActionPerformed
         InterGestionarProducto interGestionarProducto = new InterGestionarProducto();
@@ -366,7 +376,12 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_actualizar_stockActionPerformed
 
     private void jMenuItem_cerrar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_cerrar_sesionActionPerformed
-        System.exit(0);
+        int e=JOptionPane.showConfirmDialog(null, "¿Está seguro de cerrar sesión?");
+        if (e==0){
+        dispose();
+        new FrmLogin().setVisible(true);
+        }
+        else JOptionPane.showMessageDialog(null, "Ta bien, los errores pasan");
     }//GEN-LAST:event_jMenuItem_cerrar_sesionActionPerformed
 
     private void jMenuItem_nuevo_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_nuevo_usuarioActionPerformed
@@ -414,6 +429,14 @@ public class FrmMenu extends javax.swing.JFrame {
         interGraficas.setVisible(true);
     }//GEN-LAST:event_jMenuItem_ver_historialActionPerformed
 
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
+
+    }//GEN-LAST:event_jMenu8ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -459,8 +482,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem3_nuevo_producto;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem_actualizar_stock;
     private javax.swing.JMenuItem jMenuItem_cerrar_sesion;

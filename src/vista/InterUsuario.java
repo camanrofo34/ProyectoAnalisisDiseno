@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
-
 public class InterUsuario extends javax.swing.JInternalFrame {
     
     public InterUsuario() {

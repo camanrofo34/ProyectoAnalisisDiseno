@@ -25,10 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import vista.InterFacturacion;
 
-/**
- *
- * @author edison
- */
+
 public class VentaPDF {
 
     private String nombreCliente;
@@ -101,11 +98,11 @@ public class VentaPDF {
             //agregar celdas
             Encabezado.addCell(img);
 
-            String ruc = "0987654321001";
-            String nombre = "Fantasma Cooporation";
-            String telefono = "0987654321";
-            String direccion = "Tamarindo City";
-            String razon = "La magia de la programacion, esta en el poder de tu imaginacion";
+            String ruc = "Universidad Pontificia Bolivariana";
+            String nombre = "Análisis y Diseño";
+            String telefono = "Número Reservado";
+            String direccion = "Bucaramanga";
+            String razon = "Si :D";
 
             Encabezado.addCell("");//celda vacia
             Encabezado.addCell("RUC: " + ruc + "\nNOMBRE: " + nombre + "\nTELEFONO: " + telefono + "\nDIRECCION: " + direccion + "\nRAZON SOCIAL: " + razon);

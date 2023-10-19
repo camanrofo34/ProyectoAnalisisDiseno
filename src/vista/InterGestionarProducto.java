@@ -20,7 +20,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Categoria;
 import modelo.Producto;
-
+import static vista.FrmMenu.jDesktopPane_menu;
 
 public class InterGestionarProducto extends javax.swing.JInternalFrame {
 
@@ -59,6 +59,7 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton_actualizar = new javax.swing.JButton();
         jButton_eliminar = new javax.swing.JButton();
+        jButton_actualizar1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -116,7 +117,7 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
                 jButton_actualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel2.add(jButton_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jButton_eliminar.setBackground(new java.awt.Color(255, 51, 51));
         jButton_eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -126,7 +127,17 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
                 jButton_eliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, -1));
+        jPanel2.add(jButton_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, -1));
+
+        jButton_actualizar1.setBackground(new java.awt.Color(51, 204, 0));
+        jButton_actualizar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton_actualizar1.setText("Agregar");
+        jButton_actualizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_actualizar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton_actualizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 130, 270));
 
@@ -285,9 +296,16 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton_eliminarActionPerformed
 
+    private void jButton_actualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_actualizar1ActionPerformed
+        InterProducto interProducto = new InterProducto();
+        jDesktopPane_menu.add(interProducto);
+        interProducto.setVisible(true);
+    }//GEN-LAST:event_jButton_actualizar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_actualizar;
+    private javax.swing.JButton jButton_actualizar1;
     private javax.swing.JButton jButton_eliminar;
     private javax.swing.JComboBox<String> jComboBox_categoria;
     private javax.swing.JComboBox<String> jComboBox_iva;
